@@ -1,0 +1,27 @@
+//
+//  XCPch.pch
+//  生日键盘
+//
+//  Created by liuxingchen on 16/10/9.
+//  Copyright © 2016年 Liuxingchen. All rights reserved.
+//
+
+
+/**
+ *  - pch文件所有的内容都是共享，如果想用pch文件需要预编译设置
+    - 预编译设置:buildSetting -> prefix -> Precompile Prefix Header 选择 Yes ->Prefix Header 项目名称/pch文件全名.pch
+    - pch文件作用:
+        - 存放公用的宏
+        - 存放公用的类
+        - 自定义Log
+            //宏里面的可变参数:...
+            //函数中的可变参数:__VA_ARGS__
+            - #define XCLog(...) NSLog(__VA_ARGS__)
+ */
+#ifdef DEBUG//调试阶段
+#define XCLog(...)  NSLog(__VA_ARGS__)
+
+#else //发布阶段
+
+#define XCLog(...)
+#endif
